@@ -51,7 +51,15 @@ public class HardwareStore {
                 sortedLapTop2.add(lap);
             }
         }
-        return sortedLapTop2;
+        Set<Laptop> sortedLapTop3 = new HashSet<>();
+        for (Laptop  lap : sortedLapTop ){
+            for (Laptop laps : sortedLapTop2 ){
+                if (lap == laps ){
+                    sortedLapTop3.add(lap);
+                }
+            }
+        }
+        return sortedLapTop3;
     }
 
     public static int PriceMin() {
