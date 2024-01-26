@@ -19,6 +19,9 @@ public class HardwareStore {
 
         Set<Laptop> laptops = new HashSet<>(Arrays.asList(lap1, lap2, lap3, lap4, lap5, lap6, lap7, lap8, lap9));
 
+
+
+
         Set<Laptop> filetre = findeTop(laptops);
         for (Laptop top : filetre) {
             System.out.println(top);
@@ -42,7 +45,7 @@ public class HardwareStore {
         Set<Laptop> sortedLapTop2 = new HashSet<>();
         int targetDataRamMin = RamMin();
         int targetDataRamMax = RamMax();
-        for (Laptop lap : sortedLapTop) {
+        for (Laptop lap : laptops) {
             if (targetDataRamMax < targetDataRamMin) {
                 System.out.println("Максимальная RAM ниже минимальной");
                 break;
@@ -59,7 +62,15 @@ public class HardwareStore {
                 }
             }
         }
-        return sortedLapTop3;
+        if (sortedLapTop.isEmpty()){
+            return sortedLapTop2;
+        }
+        else if (sortedLapTop2.isEmpty()){
+            return sortedLapTop;
+        }
+        else {
+            return sortedLapTop3;
+        }
     }
 
     public static int PriceMin() {
